@@ -8,17 +8,17 @@
                     <form>
                         <div class="mb-3">
                             <label class="form-label">Usuário: *</label>
-                            <input type="email" name="username" class="form-control">
+                            <input type="email" name="username" v-model="username" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Senha: *</label>
-                            <input type="password" name="password" class="form-control">
+                            <input type="password" name="password" v-model="password" class="form-control">
                         </div>
 
                         <a href="#" class="card-link">Registre-se</a>
 
                         <div class="mt-3">
-                            <button type="button" class="btn btn-success">Acessar</button>
+                            <button type="button" class="btn btn-success" @click="login">Acessar</button>
                         </div>
                     </form>
                 </div>
@@ -28,10 +28,42 @@
 </template>
 
 <script>
+    import axios from 'axios';
+    import { url } from '@/enviroments/url.js';
+
     export default {
         name: 'Login',
+        data() {
+            return {
+                username: "",
+                password: ""
+            }
+        },
         methods: {
+            login() {
+                if(this.username == "" || this.username == null) {
+                    alert('Informe seu usuário.');
+                    return false;
+                }
 
+                if(this.password == "" || this.password == null) {
+                    alert('Informe sua senha.');
+                    return false;
+                }
+
+                const data = {
+                    username: this.username,
+                    password: this.password
+                }
+
+                axios.post(url('/auth/login'), data)
+                .then(response => {
+                    localStorage.setItem('token', response.data.access_token);
+                })
+                .catch(error => {
+                    alert('Problemas ao acessar o sistema. Usuário ou senha incorretos.');
+                });
+            }
         },
         beforeCreate() {
             document.querySelector('html').setAttribute('style', 'height: 100%; background-color: #a90127;')

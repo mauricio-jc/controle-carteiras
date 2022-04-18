@@ -8,10 +8,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <router-link to="/about" class="nav-link">Clientes</router-link>
+                        <router-link to="/clientes" class="nav-link">Clientes</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link to="/about" class="nav-link">Devedores</router-link>
+                        <router-link to="/devedores" class="nav-link">Devedores</router-link>
                     </li>
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>

@@ -1,0 +1,70 @@
+<template>
+    <div>
+        <Navbar/>
+
+        <div class="container">
+            <h1>Devedores</h1>
+            <router-link to="/devedor/add" class="btn btn-success">Cadastrar novo devedor</router-link>
+            <hr>
+
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">CPF/CNPJ</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col">E-mail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="devedor in devedores" :key="devedor.id">
+                        <th scope="row">{{ devedor.id }}</th>
+                        <td>{{ devedor.nome }}</td>
+                        <td>{{ devedor.cpf_cnpj }}</td>
+                        <td>{{ devedor.telefone }}</td>
+                        <td>{{ devedor.email }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>
+
+<script>
+import Navbar from '@/components/Navbar.vue';
+import axios from 'axios';
+import { url } from '@/enviroments/url';
+
+export default {
+    name: 'DevedoresIndex',
+    components: {
+        Navbar
+    },
+    data() {
+        return {
+            devedores: []
+        }
+    },
+    methods: {
+        getDevedores() {
+            const headers = {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            }
+
+            axios.get(url('/devedores'), headers)
+            .then(response => {
+                this.devedores = response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        }
+    },
+    mounted() {
+        this.getDevedores();
+    }
+}
+</script>

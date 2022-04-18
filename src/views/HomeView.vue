@@ -8,7 +8,7 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <router-link to="/">
+                    <router-link to="/clientes">
                         <div class="card">
                             <div class="card-body text-center">
                                 <font-awesome-icon :icon="['fas', 'users']" size="5x" class="text-primary"/>
@@ -19,7 +19,7 @@
                 </div>
                 
                 <div class="col-md-4">
-                    <router-link to="/about">
+                    <router-link to="/devedores">
                         <div class="card">
                             <div class="card-body text-center">
                                 <font-awesome-icon :icon="['fas', 'wallet']" size="5x" class="text-primary"/>

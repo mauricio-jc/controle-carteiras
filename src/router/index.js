@@ -3,7 +3,9 @@ import { logged } from '@/enviroments/logged';
 
 const Login = () => import('@/views/auth/Login.vue');
 const HomeView = () => import('@/views/HomeView.vue');
-const About = () => import('@/views/AboutView.vue');
+const ClientesIndex = () => import('@/views/clientes/ClientesIndex.vue');
+const ClientesAdd = () => import('@/views/clientes/ClientesAdd.vue');
+const DevedoresIndex = () => import('@/views/devedores/DevedoresIndex.vue');
 
 var isLogged = logged();
 
@@ -17,9 +19,25 @@ const routes = [
         }
     },
     {
-        path: '/about',
-        name: 'about',
-        component: About,
+        path: '/clientes',
+        name: 'clientes',
+        component: ClientesIndex,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/cliente/add',
+        name: 'clienteadd',
+        component: ClientesAdd,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/devedores',
+        name: 'devedores',
+        component: DevedoresIndex,
         meta: {
             requiresAuth: true
         }

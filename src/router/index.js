@@ -1,15 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { logged } from '@/enviroments/logged';
 
 const Login = () => import('@/views/auth/Login.vue');
 const HomeView = () => import('@/views/HomeView.vue');
 const About = () => import('@/views/AboutView.vue');
 
-const token = localStorage.getItem('token');
-var isLogged = false;
-
-if(token != null) {
-    isLogged = true;
-}
+var isLogged = logged();
 
 const routes = [
     {
@@ -41,7 +37,9 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    if(to.meta.requiresAuth) {
+    isLogged = logged();
+
+    if(to.matched.some(record => record.meta.requiresAuth)) {
         if (!isLogged) {
             next({
                 path: '/login'
@@ -52,7 +50,14 @@ router.beforeEach((to, from, next) => {
         }
     }
     else {
-        next()
+        if(isLogged && to.fullPath == '/login') {
+            next({
+                path: '/'
+            })
+        }
+        else {
+            next()
+        }
     }
 })
 

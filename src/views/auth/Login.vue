@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container">
+        <div class="container offset-md-4">
             <h1>Login</h1>
 
             <div class="card">
@@ -59,15 +59,12 @@
                 axios.post(url('/auth/login'), data)
                 .then(response => {
                     localStorage.setItem('token', response.data.access_token);
+                    this.$router.replace('/');
                 })
                 .catch(error => {
                     alert('Problemas ao acessar o sistema. Usuário ou senha incorretos.');
                 });
             }
-        },
-        beforeCreate() {
-            document.querySelector('html').setAttribute('style', 'height: 100%; background-color: #a90127;')
-            document.querySelector('body').setAttribute('style', 'height: 100%; background-color: #a90127;')
         }
     }
 </script>
@@ -75,13 +72,9 @@
 <style scoped>
     .container {
         padding-top: 150px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 
     h1 {
-        color: #fff;
         margin-bottom: 40px;
     }
 

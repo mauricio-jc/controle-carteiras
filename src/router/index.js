@@ -5,7 +5,9 @@ const Login = () => import('@/views/auth/Login.vue');
 const HomeView = () => import('@/views/HomeView.vue');
 const ClientesIndex = () => import('@/views/clientes/ClientesIndex.vue');
 const ClientesAdd = () => import('@/views/clientes/ClientesAdd.vue');
+const ClientesEdit = () => import('@/views/clientes/ClientesEdit.vue');
 const DevedoresIndex = () => import('@/views/devedores/DevedoresIndex.vue');
+
 
 var isLogged = logged();
 
@@ -30,6 +32,14 @@ const routes = [
         path: '/cliente/add',
         name: 'clienteadd',
         component: ClientesAdd,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/cliente/edit/:id',
+        name: 'clienteedit',
+        component: ClientesEdit,
         meta: {
             requiresAuth: true
         }

@@ -15,6 +15,7 @@
                         <th scope="col">CNPJ</th>
                         <th scope="col">Telefone</th>
                         <th scope="col">E-mail</th>
+                        <th scope="col">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,6 +25,9 @@
                         <td>{{ cliente.cnpj }}</td>
                         <td>{{ cliente.telefone }}</td>
                         <td>{{ cliente.email }}</td>
+                        <td>
+                            <router-link :to="{ name: 'clienteedit', params: { id: cliente.id  }}" class="btn btn-primary">Editar</router-link>
+                        </td>
                     </tr>
                 </tbody>
             </table>

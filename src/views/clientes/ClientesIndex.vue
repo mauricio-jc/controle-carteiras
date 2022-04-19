@@ -47,7 +47,7 @@ export default {
         }
     },
     methods: {
-        getClientes() {
+        getClients() {
             const headers = {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -64,7 +64,7 @@ export default {
         }
     },
     mounted() {
-        this.getClientes();
+        this.getClients();
     }
 }
 </script>

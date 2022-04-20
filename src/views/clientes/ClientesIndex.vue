@@ -26,7 +26,8 @@
                         <td>{{ cliente.telefone }}</td>
                         <td>{{ cliente.email }}</td>
                         <td>
-                            <router-link :to="{ name: 'clienteedit', params: { id: cliente.id  }}" class="btn btn-primary">Editar</router-link>
+                            <router-link :to="{ name: 'clienteedit', params: { id: cliente.id  }}" class="btn btn-primary me-3">Editar</router-link>
+                            <button class="btn btn-danger" @click="deleteClient(cliente.id)">Excluir</button>
                         </td>
                     </tr>
                 </tbody>
@@ -65,6 +66,30 @@ export default {
             .catch(error => {
                 console.log(error);
             })
+        },
+
+        deleteClient(id) {
+            if(confirm("Deseja excluir este cliente?")) {
+                const headers = {
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem('token')
+                    }
+                }
+
+                axios.delete(url('/clientes/' + id), headers)
+                .then(response => {
+                    if(response.data.status == 'success') {
+                        alert(response.data.message);
+                        this.getClients();
+                    }
+                    else {
+                        alert(response.data.message);
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+            }
         }
     },
     mounted() {

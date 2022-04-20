@@ -1,26 +1,28 @@
 <template>
     <div>
-        <div class="container offset-md-4">
-            <h1>Login</h1>
+        <div class="container">
+            <h1 class="text-center">Login</h1>
 
-            <div class="card">
-                <div class="card-body">
-                    <form>
-                        <div class="mb-3">
-                            <label class="form-label">Usuário: *</label>
-                            <input type="email" name="username" v-model="username" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Senha: *</label>
-                            <input type="password" name="password" v-model="password" class="form-control">
-                        </div>
+            <div class="row justify-content-md-center">
+                <div class="card col-md-12">
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Usuário: *</label>
+                                <input type="email" name="username" v-model="username" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Senha: *</label>
+                                <input type="password" name="password" v-model="password" class="form-control">
+                            </div>
 
-                        <a href="#" class="card-link">Registre-se</a>
+                            <a href="#" class="card-link">Registre-se</a>
 
-                        <div class="mt-3">
-                            <button type="button" class="btn btn-success" @click="login">Acessar</button>
-                        </div>
-                    </form>
+                            <div class="mt-3">
+                                <button type="button" class="btn btn-success" @click="login">Acessar</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

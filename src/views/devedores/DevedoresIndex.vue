@@ -15,6 +15,7 @@
                         <th scope="col">CPF/CNPJ</th>
                         <th scope="col">Telefone</th>
                         <th scope="col">E-mail</th>
+                        <th scope="col">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,6 +25,10 @@
                         <td>{{ devedor.cpf_cnpj }}</td>
                         <td>{{ devedor.telefone }}</td>
                         <td>{{ devedor.email }}</td>
+                        <td>
+                            <router-link :to="{ name: 'devedoredit', params: { id: devedor.id  }}" class="btn btn-primary me-3">Editar</router-link>
+                            <button class="btn btn-danger" @click="deleteDevedor(devedor.id)">Excluir</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -61,6 +66,29 @@ export default {
             .catch(error => {
                 console.log(error);
             })
+        },
+        deleteDevedor(id) {
+            if(confirm("Deseja excluir este devedor?")) {
+                const headers = {
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem('token')
+                    }
+                }
+
+                axios.delete(url('/devedores/' + id), headers)
+                .then(response => {
+                    if(response.data.status == 'success') {
+                        alert(response.data.message);
+                        this.getDevedores();
+                    }
+                    else {
+                        alert(response.data.message);
+                    }
+                })
+                .catch(error => {
+                    alert(error);
+                });
+            }
         }
     },
     mounted() {

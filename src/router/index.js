@@ -7,7 +7,8 @@ const ClientesIndex = () => import('@/views/clientes/ClientesIndex.vue');
 const ClientesAdd = () => import('@/views/clientes/ClientesAdd.vue');
 const ClientesEdit = () => import('@/views/clientes/ClientesEdit.vue');
 const DevedoresIndex = () => import('@/views/devedores/DevedoresIndex.vue');
-
+const DevedoresAdd = () => import('@/views/devedores/DevedoresAdd.vue');
+const DevedoresEdit = () => import('@/views/devedores/DevedoresEdit.vue');
 
 var isLogged = logged();
 
@@ -52,6 +53,22 @@ const routes = [
             requiresAuth: true
         }
     },
+    {
+        path: '/devedor/add',
+        name: 'devedoradd',
+        component: DevedoresAdd,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/devedor/edit/:id',
+        name: 'devedoredit',
+        component: DevedoresEdit,
+        meta: {
+            requiresAuth: true
+        }
+    },    
     {
         path: '/login',
         name: 'login',

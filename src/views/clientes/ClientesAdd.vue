@@ -114,10 +114,16 @@ export default {
 
             axios.post(url('/clientes'), JSON.stringify(data), headers)
             .then(response => {
-                console.log(response);
+                if(response.data.status == 'success') {
+                    alert(response.data.message);
+                    this.$router.push('/clientes');
+                }
+                else {
+                    alert(response.data.message);
+                }
             })
             .catch(error => {
-                console.log(error);
+                alert(error);
             })
         }
     }

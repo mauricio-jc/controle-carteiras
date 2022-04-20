@@ -3,7 +3,7 @@
         <Navbar/>
 
         <div class="container">
-            <h1>Editar cliente - {{ nome }}</h1>
+            <h1>Editar cliente</h1>
             <router-link to="/clientes" class="btn btn-success">Voltar</router-link>
             <hr>
 
@@ -138,7 +138,7 @@ export default {
 
             axios.put(url('/clientes/' + this.$route.params.id), JSON.stringify(data), headers)
             .then(response => {
-                console.log(response);
+                alert(response.data.message);
             })
             .catch(error => {
                 console.log(error);

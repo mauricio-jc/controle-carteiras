@@ -2,10 +2,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSignOut, faUsers, faWallet } from '@fortawesome/free-solid-svg-icons'
+import { faHandHoldingDollar, faSignOut, faUsers, faWallet } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faUsers, faWallet, faSignOut)
+library.add(faUsers, faWallet, faSignOut, faHandHoldingDollar)
 
 createApp(App)
 .use(router)

@@ -10,6 +10,9 @@ const ClientesEdit = () => import('@/views/clientes/ClientesEdit.vue');
 const DevedoresIndex = () => import('@/views/devedores/DevedoresIndex.vue');
 const DevedoresAdd = () => import('@/views/devedores/DevedoresAdd.vue');
 const DevedoresEdit = () => import('@/views/devedores/DevedoresEdit.vue');
+const ClientesDevedoresIndex = () => import('@/views/clientes-devedores/ClientesDevedoresIndex.vue');
+const ClientesDevedoresAdd = () => import('@/views/clientes-devedores/ClientesDevedoresAdd.vue');
+const ClientesDevedoresEdit = () => import('@/views/clientes-devedores/ClientesDevedoresEdit.vue');
 
 var isLogged = logged();
 
@@ -69,7 +72,31 @@ const routes = [
         meta: {
             requiresAuth: true
         }
-    },    
+    },
+    {
+        path: '/debitos',
+        name: 'debitos',
+        component: ClientesDevedoresIndex,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/debito/add',
+        name: 'debitoadd',
+        component: ClientesDevedoresAdd,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/debito/edit/:id',
+        name: 'debitoedit',
+        component: ClientesDevedoresEdit,
+        meta: {
+            requiresAuth: true
+        }
+    },
     {
         path: '/login',
         name: 'login',

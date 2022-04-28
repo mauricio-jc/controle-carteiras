@@ -13,6 +13,9 @@
                     <li class="nav-item">
                         <router-link to="/devedores" class="nav-link">Devedores</router-link>
                     </li>
+                    <li class="nav-item">
+                        <router-link to="/debitos" class="nav-link">Débitos</router-link>
+                    </li>
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

@@ -3,7 +3,7 @@
         <Navbar/>
 
         <div class="container">
-            <h1>Clientes</h1>
+            <h1>Débitos</h1>
             <router-link to="/debito/add" class="btn btn-success">Cadastrar débito</router-link>
             <hr>
 

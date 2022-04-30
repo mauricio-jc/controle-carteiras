@@ -4,7 +4,9 @@
 
         <div class="container">
             <h1>Devedores</h1>
-            <router-link to="/devedor/add" class="btn btn-success">Cadastrar novo devedor</router-link>
+            <router-link to="/devedor/add" class="btn btn-success">
+                <font-awesome-icon :icon="['fas', 'plus']"/> Cadastrar novo devedor
+            </router-link>
             <hr>
 
             <table class="table table-striped table-hover">
@@ -26,8 +28,12 @@
                         <td>{{ devedor.telefone }}</td>
                         <td>{{ devedor.email }}</td>
                         <td>
-                            <router-link :to="{ name: 'devedoredit', params: { id: devedor.id  }}" class="btn btn-primary me-3">Editar</router-link>
-                            <button class="btn btn-danger" @click="deleteDevedor(devedor.id)">Excluir</button>
+                            <router-link :to="{ name: 'devedoredit', params: { id: devedor.id  }}" class="btn btn-primary me-3">
+                                <font-awesome-icon :icon="['fas', 'pen']"/> Editar
+                            </router-link>
+                            <button class="btn btn-danger" @click="deleteDevedor(devedor.id)">
+                                <font-awesome-icon :icon="['fas', 'trash-can']"/> Excluir
+                            </button>
                         </td>
                     </tr>
                 </tbody>

@@ -4,7 +4,9 @@
 
         <div class="container">
             <h1>Adicionar devedor</h1>
-            <router-link to="/devedores" class="btn btn-success">Voltar</router-link>
+            <router-link to="/devedores" class="btn btn-success">
+                <font-awesome-icon :icon="['fas', 'chevron-left']"/> Voltar
+            </router-link>
             <hr>
 
             <form class="row">
@@ -30,7 +32,9 @@
                 </div>
 
                 <div class="col-md-12">
-                    <button type="button" class="btn btn-primary" @click="updateDevedor">Atualizar</button>
+                    <button type="button" class="btn btn-primary" @click="updateDevedor">
+                        <font-awesome-icon :icon="['fas', 'refresh']"/> Atualizar
+                    </button>
                 </div>
             </form>
         </div>

@@ -4,7 +4,9 @@
 
         <div class="container">
             <h1>Cadastrar débito</h1>
-            <router-link to="/debitos" class="btn btn-success">Voltar</router-link>
+            <router-link to="/debitos" class="btn btn-success">
+                <font-awesome-icon :icon="['fas', 'chevron-left']"/> Voltar
+            </router-link>
             <hr>
 
             <form class="row">
@@ -36,7 +38,9 @@
                 </div>
 
                 <div class="col-md-12">
-                    <button type="button" class="btn btn-primary" @click="saveClienteDevedor">Cadastrar</button>
+                    <button type="button" class="btn btn-primary" @click="saveClienteDevedor">
+                        <font-awesome-icon :icon="['fas', 'floppy-disk']"/> Cadastrar
+                    </button>
                 </div>
             </form>
         </div>

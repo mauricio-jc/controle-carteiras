@@ -4,7 +4,9 @@
 
         <div class="container">
             <h1>Débitos</h1>
-            <router-link to="/debito/add" class="btn btn-success">Cadastrar débito</router-link>
+            <router-link to="/debito/add" class="btn btn-success">
+                <font-awesome-icon :icon="['fas', 'plus']"/> Cadastrar débito
+            </router-link>
             <hr>
 
             <table class="table table-striped table-hover">
@@ -28,8 +30,12 @@
                         <td>{{ clienteDevedor.montante_original }}</td>
                         <td>{{ clienteDevedor.valor_atualizado }}</td>
                         <td>
-                            <router-link :to="{ name: 'debitoedit', params: { id: clienteDevedor.id  }}" class="btn btn-primary me-3">Editar</router-link>
-                            <button class="btn btn-danger" @click="deleteClient(clienteDevedor.id)">Excluir</button>
+                            <router-link :to="{ name: 'debitoedit', params: { id: clienteDevedor.id  }}" class="btn btn-primary me-3">
+                                <font-awesome-icon :icon="['fas', 'pen']"/> Editar
+                            </router-link>
+                            <button class="btn btn-danger" @click="deleteClienteDevedor(clienteDevedor.id)">
+                                <font-awesome-icon :icon="['fas', 'trash-can']"/> Excluir
+                            </button>
                         </td>
                     </tr>
                 </tbody>
@@ -71,28 +77,27 @@ export default {
         },
 
         deleteClienteDevedor(id) {
-            console.log(id);
-            // if(confirm("Deseja excluir este cliente?")) {
-            //     const headers = {
-            //         headers: {
-            //             'Authorization': 'Bearer ' + localStorage.getItem('token')
-            //         }
-            //     }
+            if(confirm("Deseja excluir este débito?")) {
+                const headers = {
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem('token')
+                    }
+                }
 
-            //     axios.delete(url('/clientes/' + id), headers)
-            //     .then(response => {
-            //         if(response.data.status == 'success') {
-            //             alert(response.data.message);
-            //             this.getClients();
-            //         }
-            //         else {
-            //             alert(response.data.message);
-            //         }
-            //     })
-            //     .catch(error => {
-            //         console.log(error);
-            //     });
-            // }
+                axios.delete(url('/clientes-devedores/' + id), headers)
+                .then(response => {
+                    if(response.data.status == 'success') {
+                        alert(response.data.message);
+                        this.getClientesDevedores();
+                    }
+                    else {
+                        alert(response.data.message);
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+            }
         }
     },
     mounted() {

@@ -35,8 +35,6 @@
                             <div class="card-body text-center">
                                 <font-awesome-icon :icon="['fas', 'hand-holding-dollar']" size="5x" class="text-primary"/>
                                 <h3 class="card-title text-primary">Débitos</h3>
-
-                                
                             </div>
                         </div>
                     </router-link>

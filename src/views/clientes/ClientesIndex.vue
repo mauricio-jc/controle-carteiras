@@ -4,7 +4,9 @@
 
         <div class="container">
             <h1>Clientes</h1>
-            <router-link to="/cliente/add" class="btn btn-success">Cadastrar novo cliente</router-link>
+            <router-link to="/cliente/add" class="btn btn-success">
+                <font-awesome-icon :icon="['fas', 'plus']"/> Cadastrar novo cliente
+            </router-link>
             <hr>
 
             <table class="table table-striped table-hover">
@@ -26,8 +28,12 @@
                         <td>{{ cliente.telefone }}</td>
                         <td>{{ cliente.email }}</td>
                         <td>
-                            <router-link :to="{ name: 'clienteedit', params: { id: cliente.id  }}" class="btn btn-primary me-3">Editar</router-link>
-                            <button class="btn btn-danger" @click="deleteClient(cliente.id)">Excluir</button>
+                            <router-link :to="{ name: 'clienteedit', params: { id: cliente.id  }}" class="btn btn-primary me-3">
+                                <font-awesome-icon :icon="['fas', 'pen']"/> Editar
+                            </router-link>
+                            <button class="btn btn-danger" @click="deleteClient(cliente.id)">
+                                <font-awesome-icon :icon="['fas', 'trash-can']"/> Excluir
+                            </button>
                         </td>
                     </tr>
                 </tbody>

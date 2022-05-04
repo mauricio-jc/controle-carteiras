@@ -18,6 +18,7 @@
                         <th scope="col">Motivo do débito</th>
                         <th scope="col">Montante original</th>
                         <th scope="col">Valor atualizado</th>
+                        <th scope="col">Situação</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
@@ -29,7 +30,11 @@
                         <td>{{ clienteDevedor.motivo_debito }}</td>
                         <td>{{ clienteDevedor.montante_original }}</td>
                         <td>{{ clienteDevedor.valor_atualizado }}</td>
+                        <td>{{ clienteDevedor.situacao }}</td>
                         <td>
+                            <router-link :to="{ name: 'debitonegociar', params: { id: clienteDevedor.id  }}" class="btn btn-success me-3">
+                                <font-awesome-icon :icon="['fas', 'handshake-simple']"/> Negociar
+                            </router-link>
                             <router-link :to="{ name: 'debitoedit', params: { id: clienteDevedor.id  }}" class="btn btn-primary me-3">
                                 <font-awesome-icon :icon="['fas', 'pen']"/> Editar
                             </router-link>

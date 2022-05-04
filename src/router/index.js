@@ -13,6 +13,7 @@ const DevedoresEdit = () => import('@/views/devedores/DevedoresEdit.vue');
 const ClientesDevedoresIndex = () => import('@/views/clientes-devedores/ClientesDevedoresIndex.vue');
 const ClientesDevedoresAdd = () => import('@/views/clientes-devedores/ClientesDevedoresAdd.vue');
 const ClientesDevedoresEdit = () => import('@/views/clientes-devedores/ClientesDevedoresEdit.vue');
+const Negociacao = () => import('@/views/clientes-devedores/Negociacao.vue');
 
 var isLogged = logged();
 
@@ -93,6 +94,14 @@ const routes = [
         path: '/debito/edit/:id',
         name: 'debitoedit',
         component: ClientesDevedoresEdit,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/debito/negociar/:id',
+        name: 'debitonegociar',
+        component: Negociacao,
         meta: {
             requiresAuth: true
         }
